@@ -1,0 +1,10 @@
+  Select customer_type, channel_description, order_date, fresh, milk, grocery, frozen, detergents_paper, delicatessen,
+  Case 
+	When order_date between '1/1/19' and '3/31/19' then 'Q1'
+	When order_date between '1/4/19' and '6/30/19' then 'Q2'
+	When order_date between '1/7/19' and '9/30/19' then 'Q3'
+	END 
+  FROM [Portfolio].[dbo].[clone_of_technical_exercise_-_analyst_review-query_8-c4f03b7048d5-2021-11-18-19-37-00] cl 
+  inner join dbo.customer_types ct on ct.customer_type_id = cl.customer_type_id inner join dbo.order_channels oc on cl.channel_id = oc.channel_id
+  order by order_date
+ 
